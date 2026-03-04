@@ -1,0 +1,411 @@
+﻿:root {
+  --green: #1f5b45;
+  --green-soft: #edf7f0;
+  --cream: #fbf6ea;
+  --gold: #b99247;
+  --gold-soft: #f5ead1;
+  --text-main: #1f2b25;
+  --text-soft: #4b5751;
+  --line: #dfdfd6;
+  --card: #fffdfa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: var(--text-main);
+  background: linear-gradient(180deg, #f8f5ed 0%, #f3f8f4 100%);
+  line-height: 1.65;
+}
+
+.wrap {
+  width: min(1020px, 92vw);
+  margin: 0 auto;
+}
+
+.hero-banner {
+  --moon-size: 172px;
+  --lantern-width: 44px;
+  --lantern-height: 86px;
+  --lantern-top: 1.15rem;
+  --lantern-rope: 74px;
+  background: linear-gradient(135deg, #1d5a43 0%, #26684d 52%, #1a4d3a 100%);
+  color: #f7f3e6;
+  padding: 2.2rem 0 3.6rem;
+  min-height: 390px;
+  border-bottom: 4px solid var(--gold);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23f4d995' stroke-opacity='0.20' stroke-width='1.1'%3E%3Cpath d='M48 4L58 38L92 48L58 58L48 92L38 58L4 48L38 38Z'/%3E%3Ccircle cx='48' cy='48' r='20'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 96px 96px;
+  background-repeat: repeat;
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+.header-art {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero-banner h1 {
+  margin: 0.25rem 0 0.55rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 10px rgba(20, 49, 38, 0.25);
+}
+
+.subtitle {
+  margin: 0 auto;
+  max-width: 58ch;
+  color: #eef6ee;
+  text-shadow: 0 2px 8px rgba(20, 49, 38, 0.22);
+}
+
+.moon {
+  position: absolute;
+  left: 3.1rem;
+  top: 2.2rem;
+  width: var(--moon-size);
+  height: var(--moon-size);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23f4dfa0'/%3E%3Cstop offset='58%25' stop-color='%23ddb463'/%3E%3Cstop offset='100%25' stop-color='%23c89548'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23g)' fill-rule='evenodd' d='M84 8a76 76 0 1 0 0 152a76 76 0 1 0 0-152zm12 12a64 64 0 1 1 0 128a64 64 0 1 1 0-128z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(0 10px 20px rgba(18, 63, 50, 0.25));
+}
+
+.star {
+  position: absolute;
+  clip-path: polygon(50% 0, 62% 36%, 100% 50%, 62% 64%, 50% 100%, 38% 64%, 0 50%, 38% 36%);
+  background: linear-gradient(145deg, #f8e7b3 0%, #ddb463 52%, #b8843e 100%);
+}
+
+.star-main {
+  left: 7.2rem;
+  top: 4.8rem;
+  width: 44px;
+  height: 44px;
+  filter: drop-shadow(0 3px 5px rgba(112, 78, 31, 0.35));
+}
+
+.spark {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #f6de9d;
+  box-shadow: 0 0 10px rgba(246, 222, 157, 0.5);
+}
+
+.spark-one {
+  left: 4.2rem;
+  top: 6.5rem;
+}
+
+.spark-two {
+  left: 13.2rem;
+  top: 3.5rem;
+}
+
+.spark-three {
+  left: 10.6rem;
+  top: 9rem;
+}
+
+.lantern {
+  position: absolute;
+  top: var(--lantern-top);
+  width: var(--lantern-width);
+  height: var(--lantern-height);
+  border-radius: 11px;
+  border: 2px solid #dfb96a;
+  background:
+    linear-gradient(180deg, rgba(250, 230, 170, 0.95) 0%, rgba(228, 176, 86, 0.95) 58%, rgba(197, 138, 52, 0.96) 100%);
+  box-shadow: 0 8px 16px rgba(18, 63, 50, 0.3);
+}
+
+.lantern::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: calc(-1 * var(--lantern-rope));
+  width: 2px;
+  height: var(--lantern-rope);
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, rgba(244, 223, 160, 0.9), rgba(244, 223, 160, 0.35));
+}
+
+.lantern::after {
+  content: "";
+  position: absolute;
+  inset: 16% 18%;
+  border-radius: 18%;
+  border: 1px solid rgba(125, 82, 23, 0.5);
+  background:
+    linear-gradient(90deg, rgba(128, 85, 25, 0.26) 0 1px, transparent 1px 50%, rgba(128, 85, 25, 0.26) 50% 51%, transparent 51% 100%),
+    linear-gradient(180deg, rgba(255, 244, 211, 0.65), rgba(230, 177, 83, 0.35));
+}
+
+.lantern-left {
+  right: 10.8rem;
+}
+
+.lantern-right {
+  right: 4.4rem;
+}
+
+.skyline {
+  position: absolute;
+  left: 50%;
+  bottom: 0.8rem;
+  transform: translateX(-50%);
+  width: min(780px, 94vw);
+  z-index: 1;
+  color: #e9ca7a;
+}
+
+.skyline-fill {
+  fill: url(#masjidGold);
+  opacity: 0.35;
+}
+
+.skyline-outline {
+  stroke: currentColor;
+  stroke-width: 4.5;
+}
+
+.skyline-window {
+  stroke: #d39e4a;
+  stroke-width: 6.2;
+}
+
+.skyline-arch {
+  stroke: #d8ab55;
+  stroke-width: 5.2;
+}
+
+.skyline-crescent-outer {
+  fill: #ebcf87;
+}
+
+.skyline-crescent-cut {
+  fill: #23684d;
+}
+
+.page-main {
+  padding: 1.5rem 0 2.2rem;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.doa-section {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.25rem;
+}
+
+.section-sahur {
+  background: var(--green-soft);
+  border-left: 6px solid var(--green);
+}
+
+.section-buka {
+  background: var(--cream);
+  border-left: 6px solid var(--gold);
+}
+
+.doa-section h2 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.8vw, 1.95rem);
+}
+
+.section-intro {
+  margin: 0.35rem 0 1rem;
+  color: var(--text-soft);
+}
+
+.doa-item {
+  background: var(--card);
+  border: 1px solid #e8e4d9;
+  border-radius: 12px;
+  padding: 0.95rem;
+}
+
+.doa-item + .doa-item {
+  margin-top: 0.8rem;
+}
+
+.doa-item h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.08rem;
+  color: #1f4536;
+}
+
+.section-buka .doa-item h3 {
+  color: #6d5428;
+}
+
+.arabic {
+  margin: 0;
+  direction: rtl;
+  text-align: right;
+  font-size: clamp(1.18rem, 2.2vw, 1.45rem);
+  line-height: 1.85;
+  font-family: "Times New Roman", serif;
+  color: #123326;
+}
+
+.latin {
+  margin: 0.68rem 0 0;
+  font-style: italic;
+  color: #3d4d46;
+  font-size: 0.96rem;
+}
+
+.arti {
+  margin: 0.6rem 0 0;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.page-footer {
+  padding: 0.9rem 0 1.2rem;
+  border-top: 1px solid #ddd4bf;
+  background: var(--gold-soft);
+  color: #4e3d1f;
+}
+
+.page-footer p {
+  margin: 0;
+  text-align: center;
+}
+
+@media (max-width: 980px) {
+  .hero-banner {
+    --moon-size: 142px;
+    --lantern-width: 40px;
+    --lantern-height: 78px;
+    --lantern-top: 1rem;
+    --lantern-rope: 64px;
+    padding-bottom: 3.2rem;
+    min-height: 360px;
+  }
+
+  .moon {
+    left: 1.6rem;
+    top: 2.1rem;
+  }
+
+  .star-main {
+    left: 5.4rem;
+    top: 4.2rem;
+  }
+
+  .lantern-left {
+    right: 8.2rem;
+  }
+
+  .lantern-right {
+    right: 2.6rem;
+  }
+
+  .skyline {
+    width: min(700px, 96vw);
+    bottom: 0.65rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero-banner {
+    --moon-size: clamp(72px, 28vw, 108px);
+    --lantern-width: clamp(22px, 9vw, 34px);
+    --lantern-height: clamp(44px, 17vw, 68px);
+    --lantern-top: clamp(0.65rem, 2vw, 0.9rem);
+    --lantern-rope: clamp(32px, 13vw, 55px);
+    padding: 1.6rem 0 2.8rem;
+    min-height: 300px;
+  }
+
+  .hero-banner h1 {
+    font-size: clamp(1.55rem, 7vw, 2.2rem);
+  }
+
+  .subtitle {
+    font-size: 0.94rem;
+    max-width: 35ch;
+  }
+
+  .moon {
+    left: clamp(0.35rem, 2.6vw, 0.8rem);
+    top: clamp(1.5rem, 5.5vw, 2rem);
+  }
+
+  .star-main {
+    left: 3.8rem;
+    top: 3.4rem;
+    width: 30px;
+    height: 30px;
+  }
+
+  .spark-one {
+    left: 1.2rem;
+    top: 5.6rem;
+  }
+
+  .spark-two {
+    left: 8.4rem;
+    top: 2.8rem;
+  }
+
+  .spark-three {
+    left: 6.4rem;
+    top: 7rem;
+  }
+
+  .lantern {
+    border-radius: 9px;
+  }
+
+  .lantern-left {
+    display: none;
+  }
+
+  .lantern-right {
+    right: clamp(0.5rem, 3vw, 1rem);
+  }
+
+  .skyline {
+    width: 106vw;
+    bottom: 0.45rem;
+  }
+
+  .doa-section {
+    padding: 1rem;
+    border-radius: 13px;
+  }
+
+  .doa-item {
+    padding: 0.85rem;
+  }
+}
