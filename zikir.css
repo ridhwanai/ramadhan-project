@@ -11,6 +11,9 @@
 
   --gold1: #f3dd9f;
   --gold2: #b99247;
+  --ring-gold1: #fffbe3;
+  --ring-gold2: #ffe892;
+  --ring-gold3: #ffd45d;
   --emer1: #4f9b70;
   --emer2: #1b5b43;
 
@@ -296,7 +299,7 @@ input[type="text"]:focus {
   inset: 0;
   transform: rotate(-90deg);
   overflow: visible;
-  filter: drop-shadow(0 14px 18px rgba(30, 61, 48, 0.2));
+  filter: drop-shadow(0 10px 14px rgba(136, 95, 24, 0.26));
   pointer-events: none;
 }
 
@@ -314,6 +317,28 @@ input[type="text"]:focus {
   stroke-dasharray: calc(var(--ring) * 3.14159265);
   stroke-dashoffset: calc(var(--ring) * 3.14159265);
   transition: stroke-dashoffset 0.35s var(--ease2);
+  filter:
+    drop-shadow(0 0 6px rgba(255, 223, 128, 0.96))
+    drop-shadow(0 0 16px rgba(255, 205, 86, 0.85))
+    drop-shadow(0 0 30px rgba(255, 188, 66, 0.7));
+  animation: ring-gold-glow 2.2s ease-in-out infinite;
+}
+
+@keyframes ring-gold-glow {
+  0%,
+  100% {
+    filter:
+      drop-shadow(0 0 5px rgba(255, 223, 128, 0.88))
+      drop-shadow(0 0 14px rgba(255, 205, 86, 0.7))
+      drop-shadow(0 0 24px rgba(255, 188, 66, 0.56));
+  }
+
+  50% {
+    filter:
+      drop-shadow(0 0 7px rgba(255, 232, 150, 1))
+      drop-shadow(0 0 22px rgba(255, 210, 100, 0.95))
+      drop-shadow(0 0 38px rgba(255, 190, 70, 0.84));
+  }
 }
 
 .tap {
