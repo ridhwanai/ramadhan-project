@@ -628,14 +628,15 @@ button:active {
   padding: 14px 24px;
   font-size: 15px;
   font-weight: 800;
-  color: #fffdf4;
+  color: #000000;
   letter-spacing: 0.02em;
-  border: 1px solid rgba(243, 221, 159, 0.85);
-  background: linear-gradient(135deg, rgba(31, 91, 69, 0.97), rgba(185, 146, 71, 0.96));
+  border: 1px solid rgba(255, 238, 170, 0.98);
+  background: linear-gradient(135deg, #fffbe3 0%, #ffe892 46%, #ffd45d 100%);
   box-shadow:
-    0 14px 36px rgba(16, 46, 34, 0.34),
-    0 0 0 2px rgba(243, 221, 159, 0.26),
-    0 0 26px rgba(243, 221, 159, 0.48);
+    0 8px 24px rgba(255, 206, 84, 0.55),
+    0 0 0 2px rgba(255, 233, 156, 0.58),
+    0 0 22px rgba(255, 220, 122, 0.9),
+    0 0 44px rgba(255, 195, 75, 0.86);
   animation: toast-complete-pop 0.55s var(--ease2);
 }
 

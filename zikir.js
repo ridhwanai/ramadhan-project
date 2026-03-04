@@ -301,6 +301,7 @@ if (!hasRequiredDom) {
   els.tap.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
+      event.stopPropagation();
       addRipple(els.tap.clientWidth / 2, els.tap.clientHeight / 2);
       inc();
     }
@@ -322,7 +323,10 @@ if (!hasRequiredDom) {
   });
 
   window.addEventListener("keydown", (event) => {
-    if (event.target && (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA")) {
+    if (
+      event.target instanceof Element &&
+      event.target.closest('input, textarea, select, button, a, [role="button"], [contenteditable="true"]')
+    ) {
       return;
     }
 
