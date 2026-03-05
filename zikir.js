@@ -52,8 +52,8 @@ if (!hasRequiredDom) {
     count: 0,
     total: 0,
     byDay: {},
-    haptic: true,
-    sound: false,
+    haptic: false,
+    sound: true,
   };
 
   let audioCtx = null;
@@ -269,7 +269,7 @@ if (!hasRequiredDom) {
 
   function render() {
     const label = currentDhikrLabel();
-    const targetText = state.target === 0 ? "inf" : String(state.target);
+    const targetText = state.target === 0 ? "∞" : String(state.target);
 
     els.num.textContent = String(state.count);
     els.targetText.textContent = targetText;

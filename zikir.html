@@ -6,8 +6,10 @@
   <title>Counter Zikir</title>
   <meta name="theme-color" content="#1f5b45" />
   <link rel="stylesheet" href="header-menu.css" />
+  <link rel="stylesheet" href="footer-menu.css" />
   <link rel="stylesheet" href="zikir.css" />
   <script src="header-menu.js" defer></script>
+  <script src="footer-menu.js" defer></script>
 </head>
 <body>
   <div data-header-menu data-current-page="zikir"></div>
@@ -43,8 +45,8 @@
 
             <div class="modes" aria-label="Mode target">
               <div class="chip active" data-target="33">Target <small>33</small></div>
-              <div class="chip" data-target="99">Target <small>99</small></div>
-              <div class="chip" data-target="0">Bebas <small>inf</small></div>
+              <div class="chip" data-target="100">Target <small>100</small></div>
+              <div class="chip" data-target="0">Bebas <small>&infin;</small></div>
             </div>
           </div>
 
@@ -108,7 +110,7 @@
                 <div class="toggle-title">Getar (haptic)</div>
                 <div class="toggle-desc">Di mobile akan terasa saat tap</div>
               </div>
-              <div class="switch on" id="haptic"></div>
+              <div class="switch" id="haptic"></div>
             </div>
           </div>
 
@@ -118,7 +120,7 @@
                 <div class="toggle-title">Suara klik</div>
                 <div class="toggle-desc">Bunyi halus setiap tap</div>
               </div>
-              <div class="switch" id="sound"></div>
+              <div class="switch on" id="sound"></div>
             </div>
           </div>
 
@@ -139,6 +141,7 @@
     </section>
   </div>
 
+  <div data-footer-menu></div>
   <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">Siap</div>
   <script src="zikir.js" defer></script>
 </body>

@@ -19,6 +19,13 @@
           <div class="unified-nav__desktop-menu">
             <a class="unified-nav__link" href="doa.html" data-page="doa">Doa</a>
             <a class="unified-nav__link" href="zikir.html" data-page="zikir">Hitung Zikir</a>
+            <a class="unified-nav__link" href="zakat.html" data-page="zakat">Hitung Zakat</a>
+          </div>
+
+          <div class="unified-nav__meta" aria-label="Jam dan tanggal Hijriah">
+            <span class="unified-nav__clock" data-nav-clock>--:-- WIB</span>
+            <span class="unified-nav__meta-dot" aria-hidden="true"></span>
+            <span class="unified-nav__hijri" data-nav-hijri>--</span>
           </div>
 
           <button class="unified-nav__toggle" type="button" aria-expanded="false" aria-label="Buka menu" data-nav-toggle>
@@ -34,6 +41,7 @@
         <div class="unified-nav__mobile-menu" data-nav-mobile hidden>
           <a class="unified-nav__link" href="doa.html" data-page="doa">Doa</a>
           <a class="unified-nav__link" href="zikir.html" data-page="zikir">Hitung Zikir</a>
+          <a class="unified-nav__link" href="zakat.html" data-page="zakat">Hitung Zakat</a>
         </div>
       </div>
     </nav>
@@ -84,10 +92,64 @@
     });
   }
 
+  function bindDateTime(root) {
+    const clockEl = root.querySelector("[data-nav-clock]");
+    const hijriEl = root.querySelector("[data-nav-hijri]");
+
+    if (!clockEl || !hijriEl) {
+      return;
+    }
+
+    const timeFormatter = new Intl.DateTimeFormat("id-ID", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+      timeZone: "Asia/Jakarta",
+    });
+
+    const fallbackDateFormatter = new Intl.DateTimeFormat("id-ID", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+      timeZone: "Asia/Jakarta",
+    });
+
+    let hijriFormatter = null;
+    try {
+      hijriFormatter = new Intl.DateTimeFormat("id-ID-u-ca-islamic", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        timeZone: "Asia/Jakarta",
+      });
+    } catch (error) {
+      hijriFormatter = null;
+    }
+
+    function formatTime(now) {
+      const parts = timeFormatter.formatToParts(now);
+      const hour = parts.find((part) => part.type === "hour")?.value || "--";
+      const minute = parts.find((part) => part.type === "minute")?.value || "--";
+      return `${hour}:${minute} WIB`;
+    }
+
+    function updateDateTime() {
+      const now = new Date();
+      clockEl.textContent = formatTime(now);
+      hijriEl.textContent = hijriFormatter
+        ? hijriFormatter.format(now)
+        : fallbackDateFormatter.format(now);
+    }
+
+    updateDateTime();
+    window.setInterval(updateDateTime, 30000);
+  }
+
   function renderHeader(mount) {
     mount.innerHTML = HEADER_TEMPLATE;
     setActiveLink(mount, mount.dataset.currentPage || "");
     bindMobileMenu(mount);
+    bindDateTime(mount);
   }
 
   function init() {

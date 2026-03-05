@@ -1,13 +1,13 @@
-﻿:root {
+:root {
   --green: #1f5b45;
-  --green-soft: #edf7f0;
-  --cream: #fbf6ea;
-  --gold: #b99247;
-  --gold-soft: #f5ead1;
+  --green-soft: #e8f2ec;
+  --cream: #f9f4e8;
+  --gold: #c79a3b;
+  --gold-soft: #f3ead7;
   --text-main: #1f2b25;
-  --text-soft: #4b5751;
-  --line: #dfdfd6;
-  --card: #fffdfa;
+  --text-soft: #5c6b63;
+  --line: #e3d9c4;
+  --card: #fffdf7;
 }
 
 * {
@@ -18,7 +18,7 @@ body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, sans-serif;
   color: var(--text-main);
-  background: linear-gradient(180deg, #f8f5ed 0%, #f3f8f4 100%);
+  background: linear-gradient(180deg, var(--cream) 0%, var(--gold-soft) 100%);
   line-height: 1.65;
 }
 
@@ -33,8 +33,8 @@ body {
   --lantern-height: 86px;
   --lantern-top: 1.15rem;
   --lantern-rope: 74px;
-  background: linear-gradient(135deg, #1d5a43 0%, #26684d 52%, #1a4d3a 100%);
-  color: #f7f3e6;
+  background: linear-gradient(135deg, #163f32 0%, #1f5b45 52%, #2f8f66 100%);
+  color: var(--cream);
   padding: 2.2rem 0 3.6rem;
   min-height: 390px;
   border-bottom: 4px solid var(--gold);
@@ -78,7 +78,7 @@ body {
 .subtitle {
   margin: 0 auto;
   max-width: 58ch;
-  color: #eef6ee;
+  color: rgba(249, 244, 232, 0.92);
   text-shadow: 0 2px 8px rgba(20, 49, 38, 0.22);
 }
 
@@ -247,7 +247,7 @@ body {
 
 .doa-item {
   background: var(--card);
-  border: 1px solid #e8e4d9;
+  border: 1px solid var(--line);
   border-radius: 12px;
   padding: 0.95rem;
 }
@@ -259,11 +259,11 @@ body {
 .doa-item h3 {
   margin: 0 0 0.5rem;
   font-size: 1.08rem;
-  color: #1f4536;
+  color: var(--green);
 }
 
 .section-buka .doa-item h3 {
-  color: #6d5428;
+  color: #7b5a1a;
 }
 
 .arabic {
@@ -273,13 +273,13 @@ body {
   font-size: clamp(1.18rem, 2.2vw, 1.45rem);
   line-height: 1.85;
   font-family: "Times New Roman", serif;
-  color: #123326;
+  color: #1a4335;
 }
 
 .latin {
   margin: 0.68rem 0 0;
   font-style: italic;
-  color: #3d4d46;
+  color: var(--text-soft);
   font-size: 0.96rem;
 }
 
@@ -287,18 +287,6 @@ body {
   margin: 0.6rem 0 0;
   font-size: 0.95rem;
   color: var(--text-main);
-}
-
-.page-footer {
-  padding: 0.9rem 0 1.2rem;
-  border-top: 1px solid #ddd4bf;
-  background: var(--gold-soft);
-  color: #4e3d1f;
-}
-
-.page-footer p {
-  margin: 0;
-  text-align: center;
 }
 
 @media (max-width: 980px) {
@@ -409,3 +397,4 @@ body {
     padding: 0.85rem;
   }
 }
+
