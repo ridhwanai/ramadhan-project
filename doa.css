@@ -16,7 +16,7 @@
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Tahoma, sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Arial, sans-serif;
   color: var(--text-main);
   background: linear-gradient(180deg, var(--cream) 0%, var(--gold-soft) 100%);
   line-height: 1.65;
@@ -70,7 +70,7 @@ body {
   margin: 0.25rem 0 0.55rem;
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.2;
-  font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.02em;
   text-shadow: 0 2px 10px rgba(20, 49, 38, 0.25);
 }
@@ -272,7 +272,7 @@ body {
   text-align: right;
   font-size: clamp(1.18rem, 2.2vw, 1.45rem);
   line-height: 1.85;
-  font-family: "Times New Roman", serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Arial, sans-serif;
   color: #1a4335;
 }
 

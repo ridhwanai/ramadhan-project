@@ -8,6 +8,12 @@
   <link rel="stylesheet" href="header-menu.css" />
   <link rel="stylesheet" href="footer-menu.css" />
   <link rel="stylesheet" href="zakat.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <script src="header-menu.js" defer></script>
   <script src="footer-menu.js" defer></script>
 </head>
@@ -57,6 +63,10 @@
                   step="1000"
                   required
                 />
+              </div>
+              <div class="gold-price-tools">
+                <button type="button" class="gold-refresh-btn" id="refreshGoldPriceBtn">Refresh Harga Emas</button>
+                <p class="hint gold-source" id="goldPriceSource">Sumber: Memuat harga emas harian...</p>
               </div>
             </div>
 
@@ -136,12 +146,13 @@
             <h2>Ringkasan Hasil</h2>
           </div>
 
-          <div class="field">
-            <div class="row"><span>Total Harta</span><strong id="resultTotal">Rp 0</strong></div>
-            <div class="row"><span>Nisab</span><strong id="resultNisab">Rp 0</strong></div>
+          <div class="field field--soft-green">
+            <div class="row"><span id="resultTotalLabel">Total Penghasilan/Bulan</span><strong id="resultTotal">Rp 0</strong></div>
+            <div class="row"><span id="resultNisabYearLabel">Nisab/Tahun</span><strong id="resultNisab">Rp 0</strong></div>
+            <div class="row" id="resultNisabBulananRow"><span>Nisab/Bulan</span><strong id="resultNisabBulanan">Rp 0</strong></div>
           </div>
 
-          <div class="field">
+          <div class="field field--soft-green">
             <div class="row"><span>Status</span><strong id="resultStatus" class="status status-idle">-</strong></div>
             <div class="row"><span>Zakat Dibayar</span><strong id="resultZakat">Rp 0</strong></div>
           </div>

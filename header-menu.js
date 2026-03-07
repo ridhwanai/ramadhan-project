@@ -20,6 +20,7 @@
             <a class="unified-nav__link" href="doa.html" data-page="doa">Doa</a>
             <a class="unified-nav__link" href="zikir.html" data-page="zikir">Hitung Zikir</a>
             <a class="unified-nav__link" href="zakat.html" data-page="zakat">Hitung Zakat</a>
+            <a class="unified-nav__link" href="todo-shalat.html" data-page="todo">To-Do Ramadhan</a>
           </div>
 
           <div class="unified-nav__meta" aria-label="Jam dan tanggal Hijriah">
@@ -42,6 +43,7 @@
           <a class="unified-nav__link" href="doa.html" data-page="doa">Doa</a>
           <a class="unified-nav__link" href="zikir.html" data-page="zikir">Hitung Zikir</a>
           <a class="unified-nav__link" href="zakat.html" data-page="zakat">Hitung Zakat</a>
+          <a class="unified-nav__link" href="todo-shalat.html" data-page="todo">To-Do Ramadhan</a>
         </div>
       </div>
     </nav>
@@ -145,11 +147,38 @@
     window.setInterval(updateDateTime, 30000);
   }
 
+  function bindScrollState(root) {
+    const navEl = root.querySelector(".unified-nav");
+    if (!navEl) {
+      return;
+    }
+
+    let ticking = false;
+
+    function updateScrolledState() {
+      const isScrolled = window.scrollY > 20;
+      navEl.classList.toggle("is-scrolled", isScrolled);
+      ticking = false;
+    }
+
+    function handleScroll() {
+      if (ticking) {
+        return;
+      }
+      ticking = true;
+      window.requestAnimationFrame(updateScrolledState);
+    }
+
+    updateScrolledState();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+  }
+
   function renderHeader(mount) {
     mount.innerHTML = HEADER_TEMPLATE;
     setActiveLink(mount, mount.dataset.currentPage || "");
     bindMobileMenu(mount);
     bindDateTime(mount);
+    bindScrollState(mount);
   }
 
   function init() {

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>To-Do Ramadhan - Dzikir</title>
+  <meta name="theme-color" content="#1f5b45" />
+  <link rel="stylesheet" href="header-menu.css" />
+  <link rel="stylesheet" href="footer-menu.css" />
+  <link rel="stylesheet" href="todo.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <script src="header-menu.js" defer></script>
+  <script src="footer-menu.js" defer></script>
+</head>
+<body class="todo-page">
+  <div data-header-menu data-current-page="todo"></div>
+
+  <main class="todo-shell">
+    <section class="todo-hero" aria-label="Ringkasan progress harian">
+      <h1>To-Do Ramadhan</h1>
+      <p class="todo-hero__date" data-today-date>-</p>
+      <div class="todo-summary">
+        <article class="todo-summary__item">
+          <span>Progress Harian Global</span>
+          <strong data-global-progress>0%</strong>
+        </article>
+        <article class="todo-summary__item">
+          <span>Status Motivasi</span>
+          <strong data-global-motivation>Belum optimal</strong>
+        </article>
+      </div>
+      <div class="todo-progress" aria-hidden="true">
+        <div class="todo-progress__bar" data-global-progress-bar></div>
+      </div>
+    </section>
+
+    <nav class="todo-tabs" aria-label="Tab checker Ramadhan">
+      <a class="todo-tab" href="todo-shalat.html" data-todo-tab="shalat">Shalat Wajib</a>
+      <a class="todo-tab" href="todo-quran.html" data-todo-tab="quran">Baca Qur'an</a>
+      <a class="todo-tab" href="todo-puasa.html" data-todo-tab="puasa">Puasa</a>
+      <a class="todo-tab" href="todo-dzikir.html" data-todo-tab="dzikir">Dzikir</a>
+    </nav>
+
+    <section class="todo-card todo-stack" aria-labelledby="dzikirTitle">
+      <header class="todo-card__head todo-card__head--with-action">
+        <div class="todo-card__head-main">
+          <h2 id="dzikirTitle">Checklist Dzikir Harian</h2>
+          <p>Centang item dzikir harian, tambah item custom jika perlu, lalu simpan.</p>
+        </div>
+        <button
+          class="todo-btn todo-btn--head todo-btn--add-dzikir"
+          type="button"
+          id="dzikirOpenModalBtn"
+          aria-haspopup="dialog"
+          aria-controls="dzikirModal"
+        >
+          <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          <span>Tambah Dzikir</span>
+        </button>
+      </header>
+
+      <div class="todo-checklist" id="dzikirChecklist" aria-live="polite"></div>
+
+      <div class="todo-progress-line">
+        <span>Progress Dzikir</span>
+        <strong id="dzikirProgressText">0% (0/5)</strong>
+      </div>
+      <div class="todo-progress" aria-hidden="true">
+        <div class="todo-progress__bar" id="dzikirProgressBar"></div>
+      </div>
+
+      <div class="todo-progress-line">
+        <span>Status</span>
+        <strong class="todo-status" id="dzikirStatus">Belum optimal</strong>
+      </div>
+
+      <p class="todo-hint">
+        Perubahan pada checklist custom bersifat draft dan baru tersimpan saat klik Simpan.
+      </p>
+
+      <div class="todo-actions">
+        <button class="todo-btn todo-btn--primary" type="button" id="dzikirSaveBtn">Simpan</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="todo-modal" id="dzikirModal" hidden>
+    <div class="todo-modal__backdrop" data-dzikir-modal-close></div>
+    <div class="todo-modal__panel" role="dialog" aria-modal="true" aria-labelledby="dzikirModalTitle">
+      <div class="todo-modal__head">
+        <h3 id="dzikirModalTitle">Tambah Dzikir Custom</h3>
+        <button
+          class="todo-btn todo-btn--ghost todo-btn--mini todo-btn--icon"
+          type="button"
+          id="dzikirModalCloseBtn"
+          aria-label="Tutup popup tambah dzikir"
+          title="Tutup"
+        >
+          <i class="fa-regular fa-x fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <p class="todo-hint">Isi dzikir custom. Saat kolom terakhir terisi, kolom baru muncul otomatis.</p>
+      <div class="todo-modal__inputs" id="dzikirModalInputs" aria-live="polite"></div>
+
+      <div class="todo-actions">
+        <button class="todo-btn todo-btn--primary" type="button" id="dzikirModalSaveBtn">Simpan Dzikir</button>
+      </div>
+    </div>
+  </div>
+
+  <div data-footer-menu></div>
+  <div class="todo-toast" id="todoToast" role="status" aria-live="polite" aria-atomic="true">Siap</div>
+
+  <script src="todo-shared.js" defer></script>
+  <script src="todo-dzikir.js" defer></script>
+</body>
+</html>
