@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jadwal Imsakiyah Ramadhan</title>
+  <meta name="theme-color" content="#1f5b45" />
+  <link rel="stylesheet" href="header-menu.css" />
+  <link rel="stylesheet" href="footer-menu.css" />
+  <link rel="stylesheet" href="todo.css" />
+  <link rel="stylesheet" href="jadwal.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <script src="header-menu.js" defer></script>
+  <script src="footer-menu.js" defer></script>
+</head>
+<body class="todo-page imsak-page">
+  <div data-header-menu data-current-page="jadwal"></div>
+
+  <main class="todo-shell">
+    <section class="todo-hero" aria-label="Ringkasan jadwal imsakiyah">
+      <h1>Jadwal Imsakiyah Ramadhan</h1>
+      <p class="todo-hero__date" id="todayLabel">-</p>
+      <div class="todo-summary">
+        <article class="todo-summary__item">
+          <span>Kota Aktif</span>
+          <strong id="heroCity">-</strong>
+        </article>
+        <article class="todo-summary__item">
+          <span>Periode Jadwal</span>
+          <strong id="monthLabel">-</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="todo-card todo-stack imsak-card" aria-labelledby="jadwalTitle">
+      <header class="todo-card__head imsak-card__head">
+        <div>
+          <h2 id="jadwalTitle">Jadwal Bulan Berjalan</h2>
+          <p id="locationLabel">Kota belum dipilih.</p>
+        </div>
+      </header>
+
+      <form class="imsak-controls" id="controlsForm" autocomplete="off">
+        <label class="todo-field" for="citySearch">
+          <span>Cari Kota</span>
+          <input class="todo-input" type="search" id="citySearch" placeholder="Ketik nama kota..." />
+        </label>
+        <label class="todo-field" for="citySelect">
+          <span>Pilih Kota Dari Hasil Pencarian</span>
+          <select class="todo-select" id="citySelect" name="city">
+            <option value="">Memuat daftar kota...</option>
+          </select>
+        </label>
+        <button class="todo-btn todo-btn--ghost imsak-refresh-btn" type="button" id="refreshBtn" aria-label="Muat ulang jadwal">
+          <i class="fa-solid fa-repeat" aria-hidden="true"></i>
+        </button>
+      </form>
+
+      <p class="imsak-status hidden" id="statusMessage" role="status" aria-live="polite">Memuat data...</p>
+
+      <div class="imsak-table-wrap">
+        <table class="imsak-table" aria-describedby="jadwalTitle">
+          <thead>
+            <tr>
+              <th scope="col">Tanggal</th>
+              <th scope="col">Imsak</th>
+              <th scope="col">Subuh</th>
+              <th scope="col">Dzuhur</th>
+              <th scope="col">Ashar</th>
+              <th scope="col">Maghrib</th>
+              <th scope="col">Isya</th>
+            </tr>
+          </thead>
+          <tbody id="scheduleBody">
+            <tr>
+              <td colspan="7" class="imsak-table-empty">Pilih kota untuk menampilkan jadwal.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div data-footer-menu></div>
+  <script src="jadwal.js" defer></script>
+</body>
+</html>

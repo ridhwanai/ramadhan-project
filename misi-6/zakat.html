@@ -1,0 +1,180 @@
+﻿<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kalkulator Zakat</title>
+  <meta name="theme-color" content="#1f5b45" />
+  <link rel="stylesheet" href="header-menu.css" />
+  <link rel="stylesheet" href="footer-menu.css" />
+  <link rel="stylesheet" href="zakat.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <script src="header-menu.js" defer></script>
+  <script src="footer-menu.js" defer></script>
+</head>
+<body>
+  <div data-header-menu data-current-page="zakat"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <main class="wrap enter">
+    <header>
+      <div class="brand">
+        <h1>Kalkulator Zakat</h1>
+        <p>Hitung zakat penghasilan dan emas berdasarkan nisab 85 gram emas.</p>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <div class="main">
+          <div class="toprow">
+            <div class="zakat-selector">
+              <label for="zakatType">Jenis zakat</label>
+              <div class="select">
+                <select id="zakatType" aria-label="Jenis zakat">
+                  <option value="penghasilan">Zakat Penghasilan</option>
+                  <option value="emas">Zakat Emas</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="modes" aria-label="Informasi cepat">
+              <div class="chip is-static">Nisab <small>85 gr</small></div>
+              <div class="chip is-static">Tarif <small>2.5%</small></div>
+            </div>
+          </div>
+
+          <form id="zakatForm" class="formArea">
+            <div class="form-group">
+              <label for="hargaEmas">Harga emas per gram</label>
+              <div class="input-wrap">
+                <span class="input-prefix">Rp</span>
+                <input
+                  type="number"
+                  id="hargaEmas"
+                  class="input-control has-prefix"
+                  placeholder="1100000"
+                  min="0"
+                  step="1000"
+                  required
+                />
+              </div>
+              <div class="gold-price-tools">
+                <button type="button" class="gold-refresh-btn" id="refreshGoldPriceBtn">Refresh Harga Emas</button>
+                <p class="hint gold-source" id="goldPriceSource">Sumber: Memuat harga emas harian...</p>
+              </div>
+            </div>
+
+            <div id="formPenghasilan" class="dynamic-form visible">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="gaji">Gaji bulanan</label>
+                  <div class="input-wrap">
+                    <span class="input-prefix">Rp</span>
+                    <input
+                      type="number"
+                      id="gaji"
+                      class="input-control has-prefix"
+                      placeholder="5000000"
+                      min="0"
+                      step="1000"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="penghasilanLain">Penghasilan lain</label>
+                  <div class="input-wrap">
+                    <span class="input-prefix">Rp</span>
+                    <input
+                      type="number"
+                      id="penghasilanLain"
+                      class="input-control has-prefix"
+                      placeholder="2000000"
+                      min="0"
+                      step="1000"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="formEmas" class="dynamic-form hidden">
+              <div class="form-row single">
+                <div class="form-group">
+                  <label for="totalEmas">Total emas dimiliki</label>
+                  <div class="input-wrap">
+                    <input
+                      type="number"
+                      id="totalEmas"
+                      class="input-control has-suffix"
+                      placeholder="100"
+                      min="0"
+                      step="0.1"
+                    />
+                    <span class="input-suffix">gram</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <div class="btns">
+                <button type="submit" class="primary" id="calculateBtn">Hitung Zakat</button>
+                <button type="button" class="danger" id="resetBtn">Reset</button>
+              </div>
+            </div>
+          </form>
+
+          <div class="info-box">
+            <p class="hint">
+              Nisab dihitung dari <strong>85 gram x harga emas</strong>. Jika total harta mencapai nisab,
+              zakat yang dibayarkan adalah <strong>2.5%</strong> dari total harta.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="side">
+          <div class="panelTitle">
+            <h2>Ringkasan Hasil</h2>
+          </div>
+
+          <div class="field field--soft-green">
+            <div class="row"><span id="resultTotalLabel">Total Penghasilan/Bulan</span><strong id="resultTotal">Rp 0</strong></div>
+            <div class="row"><span id="resultNisabYearLabel">Nisab/Tahun</span><strong id="resultNisab">Rp 0</strong></div>
+            <div class="row" id="resultNisabBulananRow"><span>Nisab/Bulan</span><strong id="resultNisabBulanan">Rp 0</strong></div>
+          </div>
+
+          <div class="field field--soft-green">
+            <div class="row"><span>Status</span><strong id="resultStatus" class="status status-idle">-</strong></div>
+            <div class="row"><span>Zakat Dibayar</span><strong id="resultZakat">Rp 0</strong></div>
+          </div>
+
+          <div class="field">
+            <div class="row"><span>Rumus</span><strong>Nisab = 85 x harga emas</strong></div>
+            <p class="hint">Untuk penghasilan: total = gaji + penghasilan lain.</p>
+            <p class="hint">Untuk emas: total = jumlah emas (gram) x harga emas.</p>
+          </div>
+
+          <div class="field">
+            <div class="row"><span>Catatan</span><strong>Estimasi awal</strong></div>
+            <p class="hint">Hasil kalkulator ini bersifat edukasi. Konsultasikan ke amil zakat resmi untuk ketetapan akhir.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer data-footer-menu class="site-footer" role="contentinfo"></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">Siap</div>
+
+  <script src="zakat.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,591 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cream: #f5edd8;
+  --cream-light: #faf5ea;
+  --gold: #c9a84c;
+  --gold-light: #e2c97e;
+  --gold-dark: #9a7832;
+  --emerald: #1b4d3e;
+  --emerald-mid: #2d6b58;
+  --night: #0d1f1a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.portal-elegant-page {
+  background-color: var(--night);
+  color: var(--cream);
+  overflow-x: hidden;
+  min-height: 100%;
+}
+
+.stars-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(ellipse at 20% 30%, #0d2b22 0%, #07110e 60%, #020808 100%);
+  pointer-events: none;
+}
+
+.stars-layer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 10% 15%, rgba(201, 168, 76, 0.55) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 40%, rgba(255, 255, 255, 0.35) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 40% 8%, rgba(201, 168, 76, 0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 25%, rgba(255, 255, 255, 0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 12%, rgba(201, 168, 76, 0.5) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 85% 35%, rgba(255, 255, 255, 0.25) 0%, transparent 100%),
+    radial-gradient(1px 1px at 92% 18%, rgba(201, 168, 76, 0.45) 0%, transparent 100%),
+    radial-gradient(1px 1px at 15% 55%, rgba(255, 255, 255, 0.2) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 50%, rgba(201, 168, 76, 0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 78% 60%, rgba(255, 255, 255, 0.25) 0%, transparent 100%),
+    radial-gradient(1px 1px at 35% 70%, rgba(201, 168, 76, 0.3) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 5% 80%, rgba(255, 255, 255, 0.2) 0%, transparent 100%),
+    radial-gradient(1px 1px at 48% 85%, rgba(201, 168, 76, 0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 88% 78%, rgba(255, 255, 255, 0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 20% 92%, rgba(201, 168, 76, 0.25) 0%, transparent 100%);
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.scene {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 6vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70vw;
+  height: 70vw;
+  max-width: 700px;
+  max-height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(27, 77, 62, 0.35) 0%, transparent 70%);
+  filter: blur(40px);
+  z-index: 0;
+}
+
+.crescent-wrap {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 2rem;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.crescent-wrap svg {
+  width: 90px;
+  height: 90px;
+  filter: drop-shadow(0 0 24px rgba(201, 168, 76, 0.5));
+}
+
+.hero-bismillah {
+  font-family: "Tajawal", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--gold-light);
+  letter-spacing: 0.15em;
+  margin-bottom: 1.2rem;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.3s forwards;
+}
+
+.hero-title {
+  font-family: "Cinzel", serif;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  color: var(--cream-light);
+  opacity: 0;
+  animation: fadeUp 0.9s 0.55s forwards;
+}
+
+.hero-title span {
+  display: block;
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.8rem auto;
+  width: fit-content;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.75s forwards;
+}
+
+.hero-divider .line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.hero-divider .diamond {
+  width: 7px;
+  height: 7px;
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+
+.hero-desc {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(245, 237, 216, 0.65);
+  max-width: 520px;
+  line-height: 1.85;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.95s forwards;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2.8rem;
+  opacity: 0;
+  animation: fadeUp 0.9s 1.15s forwards;
+  z-index: 2;
+}
+
+.btn-primary,
+.btn-outline {
+  font-family: "Tajawal", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.85rem 2.2rem;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s, border-color 0.3s;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+
+.btn-primary {
+  color: var(--night);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(201, 168, 76, 0.3);
+}
+
+.btn-outline {
+  color: var(--gold-light);
+  background: transparent;
+  border: 1px solid rgba(201, 168, 76, 0.45);
+}
+
+.btn-outline:hover {
+  background: rgba(201, 168, 76, 0.1);
+  border-color: var(--gold-light);
+  color: #fff;
+}
+
+.btn-primary:focus-visible,
+.btn-outline:focus-visible,
+.card:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 3px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mosque-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1000px;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.18;
+}
+
+.mosque-wrap svg {
+  width: 100%;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 3;
+  opacity: 0;
+  animation: fadeUp 1s 1.6s forwards;
+}
+
+.scroll-hint span {
+  font-family: "Tajawal", sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(201, 168, 76, 0.5);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scaleY(0.7);
+    transform-origin: top;
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.countdown-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  padding: 4rem 6vw;
+  border-top: 1px solid rgba(201, 168, 76, 0.07);
+}
+
+.count-item {
+  text-align: center;
+}
+
+.count-num {
+  font-family: "Cinzel", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.count-label {
+  font-family: "Tajawal", sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245, 237, 216, 0.4);
+  margin-top: 0.5rem;
+}
+
+.count-sep {
+  align-self: center;
+  font-family: "Cinzel", serif;
+  font-size: 1.5rem;
+  color: rgba(201, 168, 76, 0.3);
+  margin-top: -0.8rem;
+}
+
+.countdown-label {
+  text-align: center;
+  font-family: "Tajawal", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(201, 168, 76, 0.35);
+  margin-top: -2.5rem;
+  padding-bottom: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.features {
+  position: relative;
+  z-index: 2;
+  padding: 6rem 6vw 8rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-eyebrow {
+  font-family: "Tajawal", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+
+.section-title {
+  font-family: "Cinzel", serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 400;
+  color: var(--cream-light);
+  letter-spacing: 0.05em;
+}
+
+.section-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 1.2rem;
+}
+
+.section-ornament .line {
+  width: 40px;
+  height: 1px;
+  background: rgba(201, 168, 76, 0.4);
+}
+
+.section-ornament .dot {
+  width: 5px;
+  height: 5px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  background: linear-gradient(145deg, rgba(27, 77, 62, 0.18) 0%, rgba(13, 31, 26, 0.6) 100%);
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  padding: 2.2rem 2rem;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+  cursor: pointer;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(201, 168, 76, 0.06) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(201, 168, 76, 0.08);
+  border-color: rgba(201, 168, 76, 0.3);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card-number {
+  font-family: "Cinzel", serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  opacity: 0.6;
+  margin-bottom: 0.6rem;
+}
+
+.card-title {
+  font-family: "Cinzel", serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--cream-light);
+  margin-bottom: 0.8rem;
+}
+
+.card-desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(245, 237, 216, 0.55);
+  font-style: italic;
+}
+
+.card-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.4rem;
+  font-family: "Tajawal", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.7;
+  transition: opacity 0.3s, gap 0.3s;
+}
+
+.card:hover .card-arrow {
+  opacity: 1;
+  gap: 0.8rem;
+}
+
+.card-arrow::after {
+  content: "->";
+  font-size: 0.85rem;
+}
+
+.card-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-top: 1px solid rgba(201, 168, 76, 0.25);
+  border-right: 1px solid rgba(201, 168, 76, 0.25);
+}
+
+.quote-section {
+  position: relative;
+  z-index: 2;
+  padding: 5rem 6vw;
+  text-align: center;
+  border-top: 1px solid rgba(201, 168, 76, 0.08);
+}
+
+.quote-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(27, 77, 62, 0.08), transparent);
+  pointer-events: none;
+}
+
+.arabic-quote {
+  font-family: "Tajawal", sans-serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 300;
+  color: var(--gold-light);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.2rem;
+}
+
+.quote-text {
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  font-style: italic;
+  color: rgba(245, 237, 216, 0.6);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.9;
+}
+
+.quote-source {
+  font-family: "Tajawal", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.5;
+  margin-top: 1.4rem;
+}
+
+.site-footer {
+  position: relative;
+  z-index: 3;
+}
+
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .countdown-bar {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .count-sep {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

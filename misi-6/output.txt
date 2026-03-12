@@ -1,0 +1,105 @@
+Integrasi Semua Page 
+Page Ramadhan Portal (Landing & Navigation) 
+Deskripsi 
+Buat halaman Landing Page “Ramadhan Portal” yang mengintegrasikan semua fitur dari 
+halaman Ramadhan yang telah dibuat sebelumnya (Hari 1–5). 
+Halaman ini berfungsi sebagai pusat navigasi utama untuk mengakses semua fitur dalam 
+satu website. 
+Website harus memiliki navbar/menu navigasi yang menghubungkan setiap halaman, 
+layout yang rapi, serta tetap responsive di desktop dan mobile. 
+Halaman ini menjadi halaman utama (index.html) dari project Ramadhan multi-page. 
+ 
+Fitur yang Harus Ada 
+Navbar / Menu Navigasi 
+Navigasi untuk mengakses semua halaman fitur Ramadhan. 
+Contoh menu: 
+●  Home 
+●  Jadwal Imsakiyah 
+●  Doa Harian 
+●  Doa Sahur & Buka Puasa 
+●  Artikel Ramadhan 
+Integrasi Semua Page 
+Semua halaman dari Hari 1–5 bisa diakses dari menu navigasi. 
+Landing Section 
+Halaman utama memiliki hero section atau pembuka yang menjelaskan website 
+Ramadhan. 
+ 
+----------------Page (0) Break----------------
+Responsive Layout 
+Navbar dan layout tetap nyaman digunakan di desktop dan mobile. 
+ 
+Output 
+Website Ramadhan Portal yang berfungsi sebagai pusat navigasi. 
+Yang harus terlihat: 
+●  Navbar dengan menu navigasi 
+●  Landing section / hero 
+●  Link menuju semua fitur halaman 
+●  Layout rapi dan responsif 
+ 
+Tugas 
+HTML 
+Struktur halaman: 
+<header> 
+<nav> 
+</nav> 
+</header> 
+ 
+<main> 
+<section>Hero</section> 
+<section>Fitur Website</section> 
+</main> 
+ 
+<footer> 
+</footer> 
+Navbar berisi menu menuju halaman lain: 
+1. index.html 
+2. jadwal.html 
+3. doa.html 
+4. doa-sahur-buka.html 
+----------------Page (1) Break----------------
+ 
+Gunakan elemen semantic: 
+●  <header> 
+●  <nav> 
+●  <main> 
+●  <section> 
+●  <footer> 
+ 
+CSS 
+Styling halaman portal: 
+Navbar: 
+●  background Ramadhan 
+●  menu horizontal 
+●  hover effect 
+Hero Section: 
+●  judul besar 
+●  deskripsi singkat 
+Fitur Section: 
+●  card / box untuk tiap fitur 
+●  ada tombol menuju halaman 
+Warna Ramadhan-friendly: 
+●  Hijau 
+●  Emas 
+●  Cream 
+Layout harus responsive. 
+Bisa menggunakan: 
+●  Native CSS (flex/grid) 
+●  Bootstrap 5 
+●  Tailwind CSS 
+ 
+----------------Page (2) Break----------------
+Kriteria Penilaian 
+Kriteria                  Bobot 
+Struktur HTML semantic           25% 
+Navbar navigasi berfungsi           25% 
+Integrasi semua page             25% 
+Responsive & tampilan menarik        25% 
+ 
+Catatan 
+●  Semua halaman harus saling terhubung melalui navigasi 
+●  Project harus memiliki struktur folder rapi 
+●  Halaman utama menggunakan index.html 
+●  Boleh menggunakan CSS framework atau native CSS 
+ 
+ 
+----------------Page (3) Break----------------

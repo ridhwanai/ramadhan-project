@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>To-Do Ramadhan - Puasa</title>
+  <meta name="theme-color" content="#1f5b45" />
+  <link rel="stylesheet" href="header-menu.css" />
+  <link rel="stylesheet" href="footer-menu.css" />
+  <link rel="stylesheet" href="todo.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <script src="header-menu.js" defer></script>
+  <script src="footer-menu.js" defer></script>
+</head>
+<body class="todo-page">
+  <div data-header-menu data-current-page="todo"></div>
+
+  <main class="todo-shell">
+    <section class="todo-hero" aria-label="Ringkasan progress harian">
+      <h1>To-Do Ramadhan</h1>
+      <p class="todo-hero__date" data-today-date>-</p>
+      <div class="todo-summary">
+        <article class="todo-summary__item">
+          <span>Progress Harian Global</span>
+          <strong data-global-progress>0%</strong>
+        </article>
+        <article class="todo-summary__item">
+          <span>Status Motivasi</span>
+          <strong data-global-motivation>Belum optimal</strong>
+        </article>
+      </div>
+      <div class="todo-progress" aria-hidden="true">
+        <div class="todo-progress__bar" data-global-progress-bar></div>
+      </div>
+    </section>
+
+    <nav class="todo-tabs" aria-label="Tab checker Ramadhan">
+      <a class="todo-tab" href="todo-shalat.html" data-todo-tab="shalat">Shalat Wajib</a>
+      <a class="todo-tab" href="todo-quran.html" data-todo-tab="quran">Baca Qur'an</a>
+      <a class="todo-tab" href="todo-puasa.html" data-todo-tab="puasa">Puasa</a>
+      <a class="todo-tab" href="todo-dzikir.html" data-todo-tab="dzikir">Dzikir</a>
+    </nav>
+
+    <section class="todo-card todo-stack" aria-labelledby="puasaTitle">
+      <header class="todo-card__head">
+        <h2 id="puasaTitle">Tracker Puasa Ramadhan</h2>
+        <p>Hari aktif bisa otomatis atau override manual. Hanya hari aktif yang dapat diubah.</p>
+      </header>
+
+      <div class="todo-grid-2">
+        <div class="todo-panel todo-panel--puasa">
+          <div>Hari aktif Ramadhan</div>
+          <strong id="puasaActiveDay">Hari 1</strong>
+          <small id="puasaSource">Mode otomatis.</small>
+          <div class="todo-year-grid" aria-label="Informasi tahun kalender">
+            <div class="todo-year-chip todo-year-chip--puasa todo-year-chip--puasa-left">
+              <span>Tahun Masehi</span>
+              <strong id="puasaGregorianYear">-</strong>
+            </div>
+            <div class="todo-year-chip todo-year-chip--puasa todo-year-chip--puasa-right">
+              <span>Tahun Hijriah</span>
+              <strong id="puasaHijriYear">-</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="todo-panel todo-panel--puasa todo-stack">
+          <div class="todo-field">
+            <label for="ramadanDayOverride">Override hari (1-30)</label>
+            <input
+              class="todo-input todo-input--override"
+              type="number"
+              id="ramadanDayOverride"
+              min="1"
+              max="30"
+              step="1"
+              placeholder="Kosongkan untuk otomatis"
+            />
+          </div>
+          <button class="todo-btn todo-btn--ghost todo-btn--override-auto" type="button" id="clearOverrideBtn">
+            Gunakan mode otomatis
+          </button>
+        </div>
+      </div>
+
+      <p class="todo-hint">Klik tanggal yang aktif untuk menandai puasa hari ini, lalu tekan Simpan.</p>
+      <div class="todo-calendar" id="puasaCalendar" aria-label="Kalender puasa 1 sampai 30"></div>
+
+      <div class="todo-progress-line">
+        <span>Progress Puasa 30 Hari</span>
+        <strong id="puasaProgressText">0%</strong>
+      </div>
+      <div class="todo-progress" aria-hidden="true">
+        <div class="todo-progress__bar" id="puasaProgressBar"></div>
+      </div>
+
+      <div class="todo-progress-line">
+        <span>Status</span>
+        <strong class="todo-status" id="puasaStatus">Belum mulai</strong>
+      </div>
+
+      <div class="todo-actions">
+        <button class="todo-btn todo-btn--primary" type="button" id="puasaSaveBtn">Simpan</button>
+      </div>
+    </section>
+  </main>
+
+  <div data-footer-menu></div>
+  <div class="todo-toast" id="todoToast" role="status" aria-live="polite" aria-atomic="true">Siap</div>
+
+  <script src="todo-shared.js" defer></script>
+  <script src="todo-puasa.js" defer></script>
+</body>
+</html>

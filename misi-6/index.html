@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramadhan Portal</title>
+  <meta name="theme-color" content="#1f5b45" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Tajawal:wght@300;400;500&display=swap"
+  />
+  <link rel="stylesheet" href="header-menu.css" />
+  <link rel="stylesheet" href="footer-menu.css" />
+  <link rel="stylesheet" href="portal.css" />
+  <script src="header-menu.js" defer></script>
+  <script src="footer-menu.js" defer></script>
+</head>
+<body class="portal-elegant-page">
+  <div data-header-menu data-current-page="home"></div>
+
+  <div class="stars-layer" aria-hidden="true"></div>
+
+  <div class="scene">
+    <section class="hero" aria-labelledby="portalHeroTitle">
+      <div class="crescent-wrap" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="cg" cx="40%" cy="40%" r="60%">
+              <stop offset="0%" stop-color="#E2C97E" />
+              <stop offset="100%" stop-color="#9A7832" />
+            </radialGradient>
+          </defs>
+          <path d="M50 10 A40 40 0 1 1 50 90 A28 28 0 1 0 50 10Z" fill="url(#cg)" opacity="0.92" />
+          <circle cx="74" cy="28" r="3" fill="#E2C97E" opacity="0.8" />
+          <circle cx="83" cy="42" r="1.8" fill="#E2C97E" opacity="0.6" />
+          <circle cx="68" cy="18" r="1.5" fill="#E2C97E" opacity="0.5" />
+        </svg>
+      </div>
+
+      <p class="hero-bismillah">Bismillahirrahmanirrahim</p>
+
+      <h1 class="hero-title" id="portalHeroTitle">
+        Ramadhan<br />
+        <span>Portal</span>
+      </h1>
+
+      <div class="hero-divider" aria-hidden="true">
+        <div class="line"></div>
+        <div class="diamond"></div>
+        <div class="line"></div>
+      </div>
+
+      <p class="hero-desc">
+        Pusat panduan ibadah Ramadhan untuk jadwal, doa, zikir, zakat, dan checklist harian.
+      </p>
+
+      <div class="hero-cta">
+        <a href="jadwal.html" class="btn-primary">Lihat Jadwal</a>
+        <a href="todo-shalat.html" class="btn-outline">Mulai To-Do</a>
+      </div>
+
+      <div class="mosque-wrap" aria-hidden="true">
+        <svg viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg" fill="#C9A84C">
+          <ellipse cx="500" cy="180" rx="80" ry="60" />
+          <rect x="430" y="180" width="140" height="120" />
+          <ellipse cx="340" cy="210" rx="55" ry="40" />
+          <rect x="295" y="210" width="90" height="90" />
+          <ellipse cx="660" cy="210" rx="55" ry="40" />
+          <rect x="615" y="210" width="90" height="90" />
+          <rect x="215" y="100" width="18" height="200" />
+          <polygon points="224,80 209,120 239,120" />
+          <rect x="767" y="100" width="18" height="200" />
+          <polygon points="776,80 761,120 791,120" />
+          <rect x="310" y="140" width="12" height="160" />
+          <polygon points="316,125 307,155 325,155" />
+          <rect x="678" y="140" width="12" height="160" />
+          <polygon points="684,125 675,155 693,155" />
+          <rect x="180" y="280" width="640" height="20" />
+          <path d="M440 300 Q440 240 500 240 Q560 240 560 300" stroke="#C9A84C" fill="none" stroke-width="3" />
+          <path d="M295 300 Q295 255 330 255 Q365 255 365 300" stroke="#C9A84C" fill="none" stroke-width="2" />
+          <path d="M635 300 Q635 255 670 255 Q705 255 705 300" stroke="#C9A84C" fill="none" stroke-width="2" />
+        </svg>
+      </div>
+
+      <div class="scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <div class="countdown-bar" id="countdown" aria-label="Hitung mundur waktu ibadah">
+      <div class="count-item">
+        <div class="count-num" id="cDays">00</div>
+        <div class="count-label">Hari</div>
+      </div>
+      <div class="count-sep">:</div>
+      <div class="count-item">
+        <div class="count-num" id="cHours">00</div>
+        <div class="count-label">Jam</div>
+      </div>
+      <div class="count-sep">:</div>
+      <div class="count-item">
+        <div class="count-num" id="cMins">00</div>
+        <div class="count-label">Menit</div>
+      </div>
+      <div class="count-sep">:</div>
+      <div class="count-item">
+        <div class="count-num" id="cSecs">00</div>
+        <div class="count-label">Detik</div>
+      </div>
+    </div>
+    <p class="countdown-label" id="cdLabel">Menuju Waktu Berbuka</p>
+
+    <section class="features" id="features" aria-labelledby="featuresTitle">
+      <div class="section-header">
+        <p class="section-eyebrow">Fitur Unggulan</p>
+        <h2 class="section-title" id="featuresTitle">Panduan Lengkap Ramadhan</h2>
+        <div class="section-ornament" aria-hidden="true">
+          <div class="line"></div>
+          <div class="dot"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <a href="jadwal.html" class="card">
+          <div class="card-corner"></div>
+          <div class="card-number">01 / 08</div>
+          <h3 class="card-title">Jadwal Imsakiyah</h3>
+          <p class="card-desc">Waktu imsak, subuh, dzuhur, ashar, maghrib, dan isya setiap hari.</p>
+          <span class="card-arrow">Lihat Jadwal</span>
+        </a>
+
+        <a href="doa.html" class="card">
+          <div class="card-corner"></div>
+          <div class="card-number">02 / 08</div>
+          <h3 class="card-title">Doa Harian</h3>
+          <p class="card-desc">Kumpulan doa untuk sahur, buka puasa, dan aktivitas harian Ramadhan.</p>
+          <span class="card-arrow">Buka Doa</span>
+        </a>
+
+        <a href="zikir.html" class="card">
+          <div class="card-corner"></div>
+          <div class="card-number">03 / 08</div>
+          <h3 class="card-title">Counter Zikir</h3>
+          <p class="card-desc">Hitung zikir dengan target harian agar ibadah lebih terjaga.</p>
+          <span class="card-arrow">Mulai Zikir</span>
+        </a>
+
+        <a href="zakat.html" class="card">
+          <div class="card-corner"></div>
+          <div class="card-number">04 / 08</div>
+          <h3 class="card-title">Kalkulator Zakat</h3>
+          <p class="card-desc">Hitung estimasi zakat penghasilan atau emas dengan mudah.</p>
+          <span class="card-arrow">Hitung Zakat</span>
+        </a>
+
+        <a href="todo-shalat.html" class="card">
+          <div class="card-corner"></div>
+          <div class="card-number">05 / 08</div>
+          <h3 class="card-title">To-Do Shalat</h3>
+          <p class="card-desc">Checklist shalat wajib harian untuk menjaga konsistensi ibadah.</p>
+          <span class="card-arrow">Buka To-Do</span>
+        </a>
+
+        <a href="todo-quran.html" class="card">
+          <div class="card-corner"></div>
+          <div class="card-number">06 / 08</div>
+          <h3 class="card-title">To-Do Qur'an</h3>
+          <p class="card-desc">Pantau target baca Qur'an harian dalam checklist yang praktis.</p>
+          <span class="card-arrow">Buka To-Do</span>
+        </a>
+
+        <a href="todo-puasa.html" class="card">
+          <div class="card-corner"></div>
+          <div class="card-number">07 / 08</div>
+          <h3 class="card-title">To-Do Puasa</h3>
+          <p class="card-desc">Catat progres puasa harian dengan indikator status yang jelas.</p>
+          <span class="card-arrow">Buka To-Do</span>
+        </a>
+
+        <a href="todo-dzikir.html" class="card">
+          <div class="card-corner"></div>
+          <div class="card-number">08 / 08</div>
+          <h3 class="card-title">To-Do Dzikir</h3>
+          <p class="card-desc">Checklist dzikir untuk membantu rutinitas ibadah harian.</p>
+          <span class="card-arrow">Buka To-Do</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="quote-section" aria-label="Kutipan Ramadhan">
+      <p class="arabic-quote">Ramadhan Shahrul Quran</p>
+      <blockquote class="quote-text">
+        "Ramadhan adalah bulan diturunkannya Al-Quran sebagai petunjuk bagi manusia,
+        dan penjelasan mengenai petunjuk serta pembeda antara yang hak dan batil."
+      </blockquote>
+      <p class="quote-source">QS. Al-Baqarah: 185</p>
+    </section>
+  </div>
+
+  <footer data-footer-menu></footer>
+
+  <script>
+    (function () {
+      function updateCountdown() {
+        const now = new Date();
+        const target = new Date(now);
+        target.setHours(18, 5, 0, 0);
+
+        if (now >= target) {
+          target.setDate(target.getDate() + 1);
+          target.setHours(4, 30, 0, 0);
+          document.getElementById("cdLabel").textContent = "Menuju Waktu Imsak";
+        } else {
+          document.getElementById("cdLabel").textContent = "Menuju Waktu Berbuka";
+        }
+
+        const diff = Math.max(0, target - now);
+        const days = Math.floor(diff / 86400000);
+        const hours = Math.floor((diff % 86400000) / 3600000);
+        const mins = Math.floor((diff % 3600000) / 60000);
+        const secs = Math.floor((diff % 60000) / 1000);
+
+        document.getElementById("cDays").textContent = String(days).padStart(2, "0");
+        document.getElementById("cHours").textContent = String(hours).padStart(2, "0");
+        document.getElementById("cMins").textContent = String(mins).padStart(2, "0");
+        document.getElementById("cSecs").textContent = String(secs).padStart(2, "0");
+      }
+
+      updateCountdown();
+      window.setInterval(updateCountdown, 1000);
+
+      const cards = document.querySelectorAll(".card");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, index) => {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            entry.target.style.animation = `fadeUp 0.7s ${index * 0.1}s forwards`;
+            entry.target.style.opacity = "0";
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      cards.forEach((card) => {
+        card.style.opacity = "0";
+        observer.observe(card);
+      });
+    })();
+  </script>
+</body>
+</html>

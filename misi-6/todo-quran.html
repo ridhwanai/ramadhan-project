@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>To-Do Ramadhan - Baca Qur'an</title>
+  <meta name="theme-color" content="#1f5b45" />
+  <link rel="stylesheet" href="header-menu.css" />
+  <link rel="stylesheet" href="footer-menu.css" />
+  <link rel="stylesheet" href="todo.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <script src="header-menu.js" defer></script>
+  <script src="footer-menu.js" defer></script>
+</head>
+<body class="todo-page">
+  <div data-header-menu data-current-page="todo"></div>
+
+  <main class="todo-shell">
+    <section class="todo-hero" aria-label="Ringkasan progress harian">
+      <h1>To-Do Ramadhan</h1>
+      <p class="todo-hero__date" data-today-date>-</p>
+      <div class="todo-summary">
+        <article class="todo-summary__item">
+          <span>Progress Harian Global</span>
+          <strong data-global-progress>0%</strong>
+        </article>
+        <article class="todo-summary__item">
+          <span>Status Motivasi</span>
+          <strong data-global-motivation>Belum optimal</strong>
+        </article>
+      </div>
+      <div class="todo-progress" aria-hidden="true">
+        <div class="todo-progress__bar" data-global-progress-bar></div>
+      </div>
+    </section>
+
+    <nav class="todo-tabs" aria-label="Tab checker Ramadhan">
+      <a class="todo-tab" href="todo-shalat.html" data-todo-tab="shalat">Shalat Wajib</a>
+      <a class="todo-tab" href="todo-quran.html" data-todo-tab="quran">Baca Qur'an</a>
+      <a class="todo-tab" href="todo-puasa.html" data-todo-tab="puasa">Puasa</a>
+      <a class="todo-tab" href="todo-dzikir.html" data-todo-tab="dzikir">Dzikir</a>
+    </nav>
+
+    <section class="todo-card todo-stack" aria-labelledby="quranTitle">
+      <header class="todo-card__head">
+        <h2 id="quranTitle">Tracker Baca Qur'an</h2>
+        <p>Masukkan target halaman dan total halaman yang sudah dibaca hari ini.</p>
+      </header>
+
+      <div class="todo-grid-2">
+        <div class="todo-field">
+          <label for="quranTarget">Target halaman</label>
+          <input class="todo-input todo-input--quran" type="number" id="quranTarget" min="0" step="1" placeholder="0" />
+        </div>
+        <div class="todo-field">
+          <label for="quranRead">Halaman dibaca</label>
+          <input class="todo-input todo-input--quran" type="number" id="quranRead" min="0" step="1" placeholder="0" />
+        </div>
+      </div>
+
+      <label class="todo-check-inline" for="quranDone">
+        <input class="todo-checkbox-native" type="checkbox" id="quranDone" />
+        <span class="todo-check-icon" aria-hidden="true">
+          <i class="fa-solid fa-check todo-check-icon__glyph"></i>
+        </span>
+        <span class="todo-check-inline__text">Tandai target selesai</span>
+      </label>
+
+      <div class="todo-progress-line">
+        <span>Progress Qur'an</span>
+        <strong id="quranProgressText">0%</strong>
+      </div>
+      <div class="todo-progress" aria-hidden="true">
+        <div class="todo-progress__bar" id="quranProgressBar"></div>
+      </div>
+
+      <div class="todo-progress-line">
+        <span>Status</span>
+        <strong class="todo-status" id="quranStatus">Masih bisa ditambah</strong>
+      </div>
+
+      <div class="todo-actions">
+        <button class="todo-btn todo-btn--primary" type="button" id="quranSaveBtn">Simpan</button>
+      </div>
+    </section>
+  </main>
+
+  <div data-footer-menu></div>
+  <div class="todo-toast" id="todoToast" role="status" aria-live="polite" aria-atomic="true">Siap</div>
+
+  <script src="todo-shared.js" defer></script>
+  <script src="todo-quran.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+body.imsak-page .todo-shell {
+  display: grid;
+  gap: 0.92rem;
+}
+
+body.imsak-page .todo-summary {
+  margin-bottom: 0;
+}
+
+body.imsak-page .todo-hero h1::before {
+  content: "\f073";
+}
+
+.imsak-card__head p {
+  margin: 0.35rem 0 0;
+  color: #5a685f;
+  font-size: 0.94rem;
+}
+
+.imsak-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) auto;
+  gap: 0.65rem;
+  align-items: end;
+}
+
+.imsak-controls .todo-field {
+  display: grid;
+  gap: 0.38rem;
+}
+
+.imsak-controls .todo-field span {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #385548;
+}
+
+.todo-input[type="search"]::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+
+.imsak-refresh-btn {
+  min-width: 2.65rem;
+  width: 2.65rem;
+  padding-inline: 0;
+  display: inline-grid;
+  place-items: center;
+}
+
+.imsak-refresh-btn i {
+  font-size: 0.98rem;
+}
+
+.imsak-status {
+  margin: 0;
+  border-radius: 0.72rem;
+  border: 1px solid transparent;
+  padding: 0.62rem 0.74rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.imsak-status--loading {
+  color: #24503d;
+  background: rgba(224, 240, 229, 0.95);
+  border-color: rgba(31, 91, 69, 0.28);
+}
+
+.imsak-status--success {
+  color: #24503d;
+  background: rgba(231, 244, 235, 0.96);
+  border-color: rgba(31, 91, 69, 0.32);
+}
+
+.imsak-status--error {
+  color: #843126;
+  background: rgba(255, 236, 233, 0.96);
+  border-color: rgba(184, 77, 62, 0.38);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.imsak-table-wrap {
+  border: 1px solid var(--todo-glass-border);
+  border-radius: 0.86rem;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--todo-glass-shadow-soft);
+  overflow: auto;
+}
+
+.imsak-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+.imsak-table th,
+.imsak-table td {
+  border-bottom: 1px solid rgba(48, 96, 73, 0.14);
+  text-align: left;
+  padding: 0.7rem 0.72rem;
+}
+
+.imsak-table th {
+  background: #f4f2ea;
+  color: #214535;
+  font-size: 0.84rem;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.imsak-table td {
+  color: #2d4f40;
+  font-size: 0.89rem;
+}
+
+.imsak-table tbody tr:hover td {
+  background: rgba(47, 143, 102, 0.06);
+}
+
+.imsak-table tbody tr.is-today td {
+  background: rgba(214, 239, 223, 0.82);
+}
+
+.imsak-table tbody tr.is-today td:first-child {
+  box-shadow: inset 4px 0 0 #2f8f66;
+  font-weight: 700;
+}
+
+.imsak-table-empty {
+  text-align: center;
+  color: #5c6b63;
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .imsak-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .imsak-refresh-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .imsak-table {
+    min-width: 680px;
+  }
+}

@@ -1,0 +1,24 @@
+[data-footer-menu] {
+  display: block;
+}
+
+.site-footer {
+  margin-top: 2rem;
+  padding: 0.95rem 1rem 1.1rem;
+  border-top: 1px solid #c79a3b;
+  background: #163f32;
+  color: #f9f4e8;
+}
+
+.site-footer__inner {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.site-footer__text {
+  margin: 0;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}

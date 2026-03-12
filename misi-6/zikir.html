@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Counter Zikir</title>
+  <meta name="theme-color" content="#1f5b45" />
+  <link rel="stylesheet" href="header-menu.css" />
+  <link rel="stylesheet" href="footer-menu.css" />
+  <link rel="stylesheet" href="zikir.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <script src="header-menu.js" defer></script>
+  <script src="footer-menu.js" defer></script>
+</head>
+<body>
+  <div data-header-menu data-current-page="zikir"></div>
+  <div class="grain"></div>
+
+  <div class="wrap enter">
+    <header>
+      <div class="brand">
+        <h1>Counter Zikir</h1>
+        <p>Tap untuk menambah. Ring progress menyesuaikan target.</p>
+      </div>
+    </header>
+
+    <section class="grid">
+      <!-- MAIN -->
+      <div class="card">
+        <div class="main">
+          <div class="toprow">
+            <div class="dhikr">
+              <label for="preset">Preset zikir</label>
+              <div class="select">
+                <select id="preset" aria-label="Preset zikir">
+                  <option value="Subhanallah">Subhanallah</option>
+                  <option value="Alhamdulillah">Alhamdulillah</option>
+                  <option value="Allahu Akbar">Allahu Akbar</option>
+                  <option value="La ilaha illallah">La ilaha illallah</option>
+                  <option value="Astaghfirullah">Astaghfirullah</option>
+                  <option value="custom">Custom...</option>
+                </select>
+              </div>
+              <input id="customText" type="text" placeholder="Tulis zikir custom..." style="display:none" />
+            </div>
+
+            <div class="modes" aria-label="Mode target">
+              <div class="chip active" data-target="33">Target <small>33</small></div>
+              <div class="chip" data-target="100">Target <small>100</small></div>
+              <div class="chip" data-target="0">Bebas <small>&infin;</small></div>
+            </div>
+          </div>
+
+          <div class="center">
+            <div class="counterWrap" id="counterWrap">
+              <div class="halo"></div>
+              <div class="ring"></div>
+
+              <svg class="svg" viewBox="0 0 320 320" aria-hidden="true">
+                <defs>
+                  <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="var(--ring-gold1)"/>
+                    <stop offset="52%" stop-color="var(--ring-gold2)"/>
+                    <stop offset="100%" stop-color="var(--ring-gold3)"/>
+                  </linearGradient>
+                </defs>
+                <!-- radius=138, center=160 -->
+                <circle class="track" cx="160" cy="160" r="138"></circle>
+                <circle class="prog" id="prog" cx="160" cy="160" r="138"></circle>
+              </svg>
+
+              <div class="tap" id="tap" role="button" tabindex="0" aria-label="Tambah zikir">
+                <div class="count">
+                  <div class="num" id="num">0</div>
+                  <div class="sub" id="label">Subhanallah - target 33</div>
+                  <div class="kbd"><span>Keyboard:</span> <kbd>Space</kbd> <kbd>Enter</kbd> <kbd>R</kbd></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="actions">
+            <div class="btns">
+              <button class="primary" id="minus" title="Kurangi 1 (Backspace)">Undo</button>
+              <button id="reset" class="danger" title="Reset hitungan (R)">Reset</button>
+            </div>
+            <div class="meta">
+              <div class="badge">Hari ini: <strong id="todayCount">0</strong></div>
+              <div class="badge">Total: <strong id="totalCount">0</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDE -->
+      <div class="card">
+        <div class="side">
+          <div class="panelTitle">
+            <h2>Pengaturan</h2>
+          </div>
+
+          <div class="field">
+            <div class="row"><span>Target</span><strong id="targetText">33</strong></div>
+            <div class="row"><span>Progress</span><strong id="progressText">0%</strong></div>
+            <p class="hint">Jika target tercapai, akan muncul animasi halus + notifikasi kecil.</p>
+          </div>
+
+          <div class="field">
+            <div class="toggle">
+              <div class="toggle-copy">
+                <div class="toggle-title">Getar (haptic)</div>
+                <div class="toggle-desc">Di mobile akan terasa saat tap</div>
+              </div>
+              <div class="switch" id="haptic"></div>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="toggle">
+              <div class="toggle-copy">
+                <div class="toggle-title">Suara klik</div>
+                <div class="toggle-desc">Bunyi halus setiap tap</div>
+              </div>
+              <div class="switch on" id="sound"></div>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="row"><span>Tips</span><strong>Tap besar</strong></div>
+            <p class="hint">
+              Kamu bisa pakai <b>Space/Enter</b> untuk menambah, <b>Backspace</b> untuk undo, dan <b>R</b> untuk reset.
+            </p>
+          </div>
+
+          <div class="field">
+            <div class="row"><span>Sesi</span><strong>Aktif</strong></div>
+            <p class="hint">Hitungan berjalan selama halaman ini dibuka.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-footer-menu></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">Siap</div>
+  <script src="zikir.js" defer></script>
+</body>
+</html>
+
+

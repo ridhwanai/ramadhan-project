@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>To-Do Ramadhan - Shalat Wajib</title>
+  <meta name="theme-color" content="#1f5b45" />
+  <link rel="stylesheet" href="header-menu.css" />
+  <link rel="stylesheet" href="footer-menu.css" />
+  <link rel="stylesheet" href="todo.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <script src="header-menu.js" defer></script>
+  <script src="footer-menu.js" defer></script>
+</head>
+<body class="todo-page">
+  <div data-header-menu data-current-page="todo"></div>
+
+  <main class="todo-shell">
+    <section class="todo-hero" aria-label="Ringkasan progress harian">
+      <h1>To-Do Ramadhan</h1>
+      <p class="todo-hero__date" data-today-date>-</p>
+      <div class="todo-summary">
+        <article class="todo-summary__item">
+          <span>Progress Harian Global</span>
+          <strong data-global-progress>0%</strong>
+        </article>
+        <article class="todo-summary__item">
+          <span>Status Motivasi</span>
+          <strong data-global-motivation>Belum optimal</strong>
+        </article>
+      </div>
+      <div class="todo-progress" aria-hidden="true">
+        <div class="todo-progress__bar" data-global-progress-bar></div>
+      </div>
+    </section>
+
+    <nav class="todo-tabs" aria-label="Tab checker Ramadhan">
+      <a class="todo-tab" href="todo-shalat.html" data-todo-tab="shalat">Shalat Wajib</a>
+      <a class="todo-tab" href="todo-quran.html" data-todo-tab="quran">Baca Qur'an</a>
+      <a class="todo-tab" href="todo-puasa.html" data-todo-tab="puasa">Puasa</a>
+      <a class="todo-tab" href="todo-dzikir.html" data-todo-tab="dzikir">Dzikir</a>
+    </nav>
+
+    <section class="todo-card todo-stack" aria-labelledby="shalatTitle">
+      <header class="todo-card__head">
+        <h2 id="shalatTitle">Checklist Shalat Wajib</h2>
+        <p>Tandai shalat yang sudah ditunaikan hari ini, lalu simpan.</p>
+      </header>
+
+      <div class="todo-checklist" id="shalatChecklist">
+        <label class="todo-checklist__item" for="shalatSubuh">
+          <input class="todo-checkbox-native" type="checkbox" id="shalatSubuh" data-prayer="subuh" />
+          <span class="todo-check-icon" aria-hidden="true">
+            <i class="fa-solid fa-check todo-check-icon__glyph"></i>
+          </span>
+          <span class="todo-checklist__text">Subuh</span>
+        </label>
+        <label class="todo-checklist__item" for="shalatDzuhur">
+          <input class="todo-checkbox-native" type="checkbox" id="shalatDzuhur" data-prayer="dzuhur" />
+          <span class="todo-check-icon" aria-hidden="true">
+            <i class="fa-solid fa-check todo-check-icon__glyph"></i>
+          </span>
+          <span class="todo-checklist__text">Dzuhur</span>
+        </label>
+        <label class="todo-checklist__item" for="shalatAshar">
+          <input class="todo-checkbox-native" type="checkbox" id="shalatAshar" data-prayer="ashar" />
+          <span class="todo-check-icon" aria-hidden="true">
+            <i class="fa-solid fa-check todo-check-icon__glyph"></i>
+          </span>
+          <span class="todo-checklist__text">Ashar</span>
+        </label>
+        <label class="todo-checklist__item" for="shalatMaghrib">
+          <input class="todo-checkbox-native" type="checkbox" id="shalatMaghrib" data-prayer="maghrib" />
+          <span class="todo-check-icon" aria-hidden="true">
+            <i class="fa-solid fa-check todo-check-icon__glyph"></i>
+          </span>
+          <span class="todo-checklist__text">Maghrib</span>
+        </label>
+        <label class="todo-checklist__item" for="shalatIsya">
+          <input class="todo-checkbox-native" type="checkbox" id="shalatIsya" data-prayer="isya" />
+          <span class="todo-check-icon" aria-hidden="true">
+            <i class="fa-solid fa-check todo-check-icon__glyph"></i>
+          </span>
+          <span class="todo-checklist__text">Isya</span>
+        </label>
+      </div>
+
+      <div class="todo-progress-line">
+        <span>Progress Shalat</span>
+        <strong id="shalatProgressText">0%</strong>
+      </div>
+      <div class="todo-progress" aria-hidden="true">
+        <div class="todo-progress__bar" id="shalatProgressBar"></div>
+      </div>
+
+      <div class="todo-progress-line">
+        <span>Status</span>
+        <strong class="todo-status" id="shalatStatus">Belum optimal</strong>
+      </div>
+
+      <div class="todo-actions">
+        <button class="todo-btn todo-btn--primary" type="button" id="shalatSaveBtn">Simpan</button>
+      </div>
+    </section>
+  </main>
+
+  <div data-footer-menu></div>
+  <div class="todo-toast" id="todoToast" role="status" aria-live="polite" aria-atomic="true">Siap</div>
+
+  <script src="todo-shared.js" defer></script>
+  <script src="todo-shalat.js" defer></script>
+</body>
+</html>
